@@ -1,14 +1,14 @@
 #include <gtest/gtest.h>
 
 #include <cstddef>
-#include <integra/debouncer.hpp>
+#include <hwlib/algorithms/debouncer.hpp>
 #include <tuple>
 #include <type_traits>
 
 namespace
 {
 
-using integra::Debouncer;
+using hwlib::algorithms::Debouncer;
 
 TEST(DebouncerTest, SetsAfterThresholdAgreeingSamples)
 {

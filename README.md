@@ -2,23 +2,23 @@
 
 A sample-counting debouncer: set after enough agreeing samples, cleared as soon as they stop agreeing.
 
-Part of [integra-lib](https://github.com/integra-lib) — architecture-independent C++20
+Part of [hwlib](https://github.com/integra-lib) — architecture-independent C++20
 components shared between firmware projects. Header-only,
 no exceptions, no RTTI.
 
 ## Use it
 
 ```bash
-git submodule add git@github.com:integra-lib/debouncer.git external/integra/debouncer
+git submodule add git@github.com:integra-lib/debouncer.git external/hwlib/debouncer
 ```
 
 ```cmake
-add_subdirectory(external/integra/debouncer)
-target_link_libraries(app PRIVATE Integra::debouncer)
+add_subdirectory(external/hwlib/debouncer)
+target_link_libraries(app PRIVATE Hwlib::debouncer)
 ```
 
 ```cpp
-#include <integra/debouncer.hpp>
+#include <hwlib/algorithms/debouncer.hpp>
 ```
 
 Each component carries its own include directory, so this header stays unreachable
@@ -29,7 +29,7 @@ a build that happens to work.
 
 ```cpp
 // Five readings over the limit before the alarm counts.
-integra::Debouncer<> overLimit{5U};
+hwlib::algorithms::Debouncer<> overLimit{5U};
 
 if (overLimit.Update(reading > LIMIT))
 {
@@ -73,9 +73,9 @@ Every component is released on its own, tagged `vX.Y.Z`. Pre-1.0, a minor releas
 break the API, which is why dependants accept a single minor.
 
 ```bash
-git -C external/integra/debouncer fetch --tags
-git -C external/integra/debouncer checkout v0.2.0
-git add external/integra/debouncer && git commit -m "build: bump debouncer to v0.2.0"
+git -C external/hwlib/debouncer fetch --tags
+git -C external/hwlib/debouncer checkout v0.2.0
+git add external/hwlib/debouncer && git commit -m "build: bump debouncer to v0.2.0"
 ```
 
 ## In a consumer's CI

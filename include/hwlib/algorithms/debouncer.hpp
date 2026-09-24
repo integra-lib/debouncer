@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cstddef>
 
-namespace integra
+namespace hwlib::algorithms
 {
 
 /// A sample-counting debouncer: a saturating counter that climbs by INC on every
@@ -91,4 +91,4 @@ private:
     std::size_t m_threshold;
 };
 
-} // namespace integra
+} // namespace hwlib::algorithms
